@@ -10,6 +10,7 @@ const inputSection = document.querySelector(".form");
 
 function createSelection(genreParam) {
   const selectCountry = loopSelectionElements(countryList, "countries");
+  console.log(genreParam);
   const selectGenre = loopSelectionElements(genreParam, "Genres");
   inputSection.appendChild(selectCountry);
   inputSection.appendChild(selectGenre);
@@ -36,8 +37,6 @@ const callCommentApi = async () => {
 
   const result = await tempApi.getMovies(newParam);
   const movies = result.data.results;
-
-  console.log(movies);
 
   createMovies(movies);
 };
