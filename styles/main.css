@@ -126,7 +126,6 @@ input {
   margin: 1rem;
 }
 .movies__details {
-  inline-size: 29rem;
   overflow-wrap: break-word;
   text-wrap: wrap;
   margin: 1rem;

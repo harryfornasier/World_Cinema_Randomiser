@@ -14,11 +14,31 @@ const selectCountry = loopSelectionElements(languages, "languages");
 
 const form = document.querySelector(".form");
 
-const nextPage = document.querySelector(".nextpage", event);
-
-console.log(nextPage);
-
 let checkAgain = false;
+let pageCount = 1;
+let maxPage = 100;
+
+const pageUp = () => {
+  if (pageCount <= maxPage) {
+    pageCount++;
+    document.getElementById("submitButton").click();
+    window.scrollTo(0, 0);
+  }
+};
+
+const pageDown = () => {
+  if (pageCount > 1) {
+    pageCount--;
+    document.getElementById("submitButton").click();
+    window.scrollTo(0, 0);
+  }
+};
+
+const nextPage = document.querySelector(".nextPage");
+nextPage.addEventListener("click", pageUp);
+
+const lastPage = document.querySelector(".lastPage");
+lastPage.addEventListener("click", pageDown);
 
 const requestGenre = async () => {
   const tempApi = new MovieApi(API_KEY);
@@ -31,9 +51,11 @@ const requestGenre = async () => {
 const requestMovie = async (discoverMovie) => {
   const tempApi = new MovieApi(API_KEY);
   const result = await tempApi.getMovies(discoverMovie);
-  const movies = result.data.results;
+  const movies = result.data;
 
-  if (movies.length) {
+  maxPage = movies.total_pages;
+
+  if (movies.results.length) {
     createMovies(movies);
   } else {
     checkAgain = true;
@@ -67,7 +89,7 @@ function createSelection(genreParam) {
 }
 
 function getRandomInt(max) {
-  return Math.floor(Math.random(1) * max);
+  return Math.floor(Math.random() * max);
 }
 
 const checkParameters = (event) => {
@@ -76,16 +98,19 @@ const checkParameters = (event) => {
   const eventTarget = event.target;
 
   if (eventTarget.languages.value === "rd" || checkAgain) {
+    languages.shift();
     const rando = getRandomInt(languages.length);
     eventTarget.languages.value = languages[rando].id;
   }
 
   if (eventTarget.sort.value === "random" || checkAgain) {
+    selectOptions.shift();
     const rando = getRandomInt(selectOptions.length);
     eventTarget.sort.value = selectOptions[rando].id;
   }
 
   if (eventTarget.Genres.value === "rd" || checkAgain) {
+    delete eventTarget.Genres[0].remove();
     const rando = getRandomInt(eventTarget.Genres.length);
     eventTarget.Genres.value = eventTarget.Genres[rando].value;
   }
@@ -95,7 +120,7 @@ const checkParameters = (event) => {
     eventTarget.start.value,
     eventTarget.end.value,
     eventTarget.languages.value,
-    1,
+    pageCount,
     eventTarget.sort.value
   );
   checkAgain = false;
@@ -104,8 +129,10 @@ const checkParameters = (event) => {
 
 form.addEventListener("submit", checkParameters);
 
-function createMovies(movieList) {
+function createMovies(movieListObj) {
   moviesSection.innerHTML = "";
+  let movieList = movieListObj.results;
+  document.querySelector(".page-text").innerText = movieListObj.page;
   if (movieList.length) {
     for (let i = 0; i < movieList.length; i++) {
       const moviesWrapper = createElement("div", "movies__wrapper");

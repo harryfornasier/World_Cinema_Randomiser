@@ -15,7 +15,7 @@ export function createElement(element, className, innerText, name, value) {
   }
 
   if (innerText) {
-    createdElement.innerHTML = innerText;
+    createdElement.innerText = innerText;
   }
 
   if (name) {
