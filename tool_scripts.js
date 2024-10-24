@@ -7,7 +7,7 @@ export function movieParameters(genre, dateStart, dateEnd, language, page, sort)
   this.sort = sort;
 }
 
-export function createElement(element, className, innerText) {
+export function createElement(element, className, innerText, value) {
   const createdElement = document.createElement(element);
 
   if (className) {
@@ -16,6 +16,10 @@ export function createElement(element, className, innerText) {
 
   if (innerText) {
     createdElement.innerHTML = innerText;
+  }
+
+  if (value) {
+    createdElement.value = value;
   }
 
   return createdElement;
@@ -29,7 +33,7 @@ export function loopSelectionElements(elementList, name) {
   );
   for (let i = 0; i < elementList.length; i++) {
     const optionName = elementList[i].name;
-    const option = createElement("option", "input__option", optionName);
+    const option = createElement("option", "input__option", optionName, optionName);
     selectElement.appendChild(option);
   }
   return selectElement;
