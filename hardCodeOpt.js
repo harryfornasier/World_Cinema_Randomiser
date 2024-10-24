@@ -1,42 +1,46 @@
 export const selectOptions = [
   {
-    action: "title.asc",
+    id: "random",
+    name: "Random",
+  },
+  {
+    id: "title.asc",
     name: "Title Ascending",
   },
   {
-    action: "title.desc",
+    id: "title.desc",
     name: "Title Descending",
   },
   {
-    action: "revenue.asc",
+    id: "revenue.asc",
     name: "Revenue Ascending",
   },
   {
-    action: "revenue.desc",
+    id: "revenue.desc",
     name: "Revenue Descending",
   },
   {
-    action: "primary_release_date.asc",
+    id: "primary_release_date.asc",
     name: "Release Date Ascending",
   },
   {
-    action: "primary_release_date.desc",
+    id: "primary_release_date.desc",
     name: "Release Date Descending",
   },
   {
-    action: "vote_average.asc",
+    id: "vote_average.asc",
     name: "Vote Average Ascending",
   },
   {
-    action: "vote_average.desc",
+    id: "vote_average.desc",
     name: "Vote Average Descending",
   },
   {
-    action: "vote_count.asc",
+    id: "vote_count.asc",
     name: "Vote Count Ascending",
   },
   {
-    action: "vote_count.desc",
+    id: "vote_count.desc",
     name: "Vote Count Descending",
   },
 ];

@@ -25,17 +25,20 @@ export function createElement(element, className, innerText, name, value) {
   if (value) {
     createdElement.value = value;
   }
-
   return createdElement;
 }
 
 export function loopSelectionElements(elementList, name) {
-  console.log(name);
   const selectElement = createElement("select", `submit__` + name, null, name);
-  console.log(selectElement);
   for (let i = 0; i < elementList.length; i++) {
     const optionName = elementList[i].name;
-    const option = createElement("option", "input__option", optionName, optionName);
+    const option = createElement(
+      "option",
+      "input__option",
+      optionName,
+      optionName,
+      elementList[i].id
+    );
     selectElement.appendChild(option);
   }
   return selectElement;
