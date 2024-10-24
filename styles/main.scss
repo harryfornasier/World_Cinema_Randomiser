@@ -1,5 +1,10 @@
-.body {
-  background-color: beige;
+@use "./partials/mixins" as *;
+@use "./partials/resets";
+@use "./partials/footer";
+
+body {
+  background-color: #f7f1f4;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .main {
@@ -11,10 +16,85 @@
 }
 
 .form {
-  margin: 0 auto;
-  width: 60%;
   justify-content: center;
   flex-direction: column;
   display: flex;
-  flex-wrap: wrap;
+  gap: 0.5rem;
+  max-width: 60%;
+
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+select,
+input {
+  color: white;
+  height: 2rem;
+  background-color: #4c061d;
+  border-radius: 6px;
+  padding-left: 0.5rem;
+}
+
+.movies {
+  border-top: solid #4c061d 0.2rem;
+  padding-top: 2rem;
+  margin: 1rem auto;
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  @include tablet-styles {
+    width: 70%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  &__wrapper {
+    color: white;
+    background-color: #4c061d;
+    border: solid #d17a22 3px;
+    border-radius: 8px;
+
+    @include tablet-styles {
+      width: 40%;
+    }
+  }
+
+  &__img {
+    object-fit: cover;
+    aspect-ratio: 1 /1;
+    height: auto;
+    width: 100%;
+  }
+
+  &__top-wrapper {
+    justify-content: space-between;
+    display: flex;
+    margin: 1rem;
+  }
+
+  &__description {
+    max-width: 100%;
+    inline-size: 29rem;
+    overflow-wrap: break-word;
+    text-wrap: wrap;
+    margin: 1rem;
+  }
+
+  &__details {
+    inline-size: 29rem;
+    overflow-wrap: break-word;
+    text-wrap: wrap;
+    margin: 1rem;
+  }
+}
+
+button {
+  background-color: #d17a22;
+  border-radius: 4px;
+  height: 4rem;
 }

@@ -1,0 +1,17 @@
+@use "./variables" as *;
+
+@mixin desktop-spaceing {
+  width: 80%;
+}
+
+@mixin tablet-styles {
+  @media screen and (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop-styles {
+  @media screen and (min-width: $desktop-breakpoint) {
+    @content;
+  }
+}

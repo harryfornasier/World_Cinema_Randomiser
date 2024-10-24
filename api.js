@@ -2,7 +2,7 @@ export default class MovieApi {
   constructor(apiKey, discoverObject) {
     this.apiKey = apiKey;
     this.baseURL = "https://api.themoviedb.org/3/";
-    this.discoverURL = "discover/movie?include_adult=true&include_video=false&";
+    this.discoverURL = "discover/movie?include_adult=false&include_video=false&";
   }
 
   async getMovies(discoverObject) {
