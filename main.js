@@ -4,44 +4,54 @@ import MovieApi from "./api.js";
 import { loopSelectionElements, movieParameters } from "./tool_scripts.js";
 import { createElement } from "./tool_scripts.js";
 import { countryList } from "./country.js";
+import { selectOptions } from "./hardCodeOpt.js";
 
-const moviesSection = document.querySelector(".movies");
-const inputSection = document.querySelector(".form");
-
-function createSelection(genreParam) {
-  const selectCountry = loopSelectionElements(countryList, "countries");
-  console.log(genreParam);
-  const selectGenre = loopSelectionElements(genreParam, "Genres");
-  inputSection.appendChild(selectCountry);
-  inputSection.appendChild(selectGenre);
-}
-
-const callCommentApi = async () => {
+const getGenres = async () => {
   const tempApi = new MovieApi(API_KEY);
-
   const genres = await tempApi.getGenres();
 
   //.find((o) => o.name === "Horror")
   let genreParam = genres.data.genres;
-
   createSelection(genreParam);
 
-  const newParam = new movieParameters(
-    "27",
-    "1960-01-01",
-    "1979-01-01",
-    "it",
-    "15",
-    "popular.dsc"
-  );
+  // const newParam = new movieParameters(
+  //   "27",
+  //   "1960-01-01",
+  //   "1979-01-01",
+  //   "it",
+  //   "15",
+  //   "popular.dsc"
+  // );
 
-  const result = await tempApi.getMovies(newParam);
-  const movies = result.data.results;
+  // const result = await tempApi.getMovies(newParam);
+  // const movies = result.data.results;
 
-  createMovies(movies);
+  // createMovies(movies);
 };
 
-callCommentApi();
+function createSelection(genreParam) {
+  const selectGenre = loopSelectionElements(genreParam, "Genres");
+
+  inputSection.appendChild(selectCountry);
+  inputSection.appendChild(selectGenre);
+  inputSection.appendChild(selectSort);
+}
+
+const moviesSection = document.querySelector(".movies");
+const inputSection = document.querySelector(".form");
+
+const selectSort = loopSelectionElements(selectOptions, "Sort");
+const selectCountry = loopSelectionElements(countryList, "countries");
+
+const form = document.querySelector(".form");
+
+const checkParameters = (event) => {
+  event.preventDefault();
+
+  console.log(event);
+};
+
+form.addEventListener("submit", checkParameters);
 
 function createMovies(movieList) {
   for (let i = 0; i < movieList.length; i++) {
@@ -63,3 +73,7 @@ function createMovies(movieList) {
     moviesSection.appendChild(moviePoster);
   }
 }
+
+const getCall = async () => {};
+
+getGenres();
