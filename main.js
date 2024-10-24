@@ -6,6 +6,14 @@ import { createElement } from "./tool_scripts.js";
 import { countryList } from "./country.js";
 import { selectOptions } from "./hardCodeOpt.js";
 
+const moviesSection = document.querySelector(".movies");
+const inputSection = document.querySelector(".form");
+
+const selectSort = loopSelectionElements(selectOptions, "sort");
+const selectCountry = loopSelectionElements(countryList, "countries");
+
+const form = document.querySelector(".form");
+
 const getGenres = async () => {
   const tempApi = new MovieApi(API_KEY);
   const genres = await tempApi.getGenres();
@@ -37,18 +45,10 @@ function createSelection(genreParam) {
   inputSection.appendChild(selectSort);
 }
 
-const moviesSection = document.querySelector(".movies");
-const inputSection = document.querySelector(".form");
-
-const selectSort = loopSelectionElements(selectOptions, "Sort");
-const selectCountry = loopSelectionElements(countryList, "countries");
-
-const form = document.querySelector(".form");
-
 const checkParameters = (event) => {
   event.preventDefault();
 
-  console.log(event);
+  console.log(event.target.sort.value);
 };
 
 form.addEventListener("submit", checkParameters);

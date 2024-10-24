@@ -1,0 +1,19 @@
+.body {
+  background-color: beige;
+}
+
+.main {
+  margin: 0 auto;
+}
+.main__title {
+  text-align: center;
+}
+
+.form {
+  margin: 0 auto;
+  width: 60%;
+  justify-content: center;
+  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
+}/*# sourceMappingURL=main.css.map */

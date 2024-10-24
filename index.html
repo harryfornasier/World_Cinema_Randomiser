@@ -4,35 +4,34 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>The World Cinema Randomiser</title>
+    <link rel="stylesheet" href="./styles/main.css" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.2.1/axios.min.js"></script>
     <script src="./main.js" type="module"></script>
   </head>
   <body>
-    <main>
+    <main class="main">
       <h1 class="main__title">The World Cinema Randomiser</h1>
-      <form class="form" action="submit">
-        <label for="start">Start date:</label>
-
-        <input
-          type="date"
-          id="start"
-          name="trip-start"
-          value="2018-07-22"
-          min="1900-01-01"
-        />
-        <label for="start">End Date:</label>
-
-        <input
-          type="date"
-          id="start"
-          name="trip-start"
-          value="2018-07-22"
-          min="1900-01-01"
-        />
-
-        <button type="submit" value="Randomise">Randomise</button>
-      </form>
-
+      <section class="form__container">
+        <form class="form" action="submit">
+          <label for="start">Start date:</label>
+          <input
+            type="date"
+            id="start"
+            name="trip-start"
+            value="2018-07-22"
+            min="1900-01-01"
+          />
+          <label for="start">End Date:</label>
+          <input
+            type="date"
+            id="start"
+            name="trip-start"
+            value="2018-07-22"
+            min="1900-01-01"
+          />
+          <button type="submit" value="Randomise">Randomise</button>
+        </form>
+      </section>
       <section class="movies"></section>
     </main>
   </body>
