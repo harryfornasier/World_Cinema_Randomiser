@@ -1,5 +1,3 @@
-import "dotenv/config.js";
-
 import MovieApi from "./api.js";
 import { loopSelectionElements, movieParameters } from "./tool_scripts.js";
 import { createElement } from "./tool_scripts.js";
