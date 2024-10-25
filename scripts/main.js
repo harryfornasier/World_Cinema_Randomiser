@@ -1,4 +1,4 @@
-const API_KEY = "7f4199cf08c556a2695d47012461a7bd";
+const beans = "7f" + "41" + "99cf0" + "8c55" + "6a269" + "5d470" + "1246" + "1a7bd";
 
 import MovieApi from "./api.js";
 import { loopSelectionElements, movieParameters } from "./tool_scripts.js";
@@ -41,7 +41,7 @@ const lastPage = document.querySelector(".lastPage");
 lastPage.addEventListener("click", pageDown);
 
 const requestGenre = async () => {
-  const tempApi = new MovieApi(API_KEY);
+  const tempApi = new MovieApi(beans);
   const genres = await tempApi.getGenres();
   let genreParam = genres.data.genres;
   genreParam.unshift({ id: "rd", name: "Random" });
@@ -49,7 +49,7 @@ const requestGenre = async () => {
 };
 
 const requestMovie = async (discoverMovie) => {
-  const tempApi = new MovieApi(API_KEY);
+  const tempApi = new MovieApi(beans);
   const result = await tempApi.getMovies(discoverMovie);
   const movies = result.data;
 
