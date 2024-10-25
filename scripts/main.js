@@ -1,4 +1,4 @@
-const API_KEY = "7f4199cf08c556a2695d47012461a7bd";
+import "dotenv/config.js";
 
 import MovieApi from "./api.js";
 import { loopSelectionElements, movieParameters } from "./tool_scripts.js";
@@ -17,6 +17,8 @@ const form = document.querySelector(".form");
 let checkAgain = false;
 let pageCount = 1;
 let maxPage = 100;
+
+console.log(process);
 
 const pageUp = () => {
   if (pageCount <= maxPage) {
@@ -41,7 +43,7 @@ const lastPage = document.querySelector(".lastPage");
 lastPage.addEventListener("click", pageDown);
 
 const requestGenre = async () => {
-  const tempApi = new MovieApi(API_KEY);
+  const tempApi = new MovieApi(process.env.SECRET_KEY);
   const genres = await tempApi.getGenres();
   let genreParam = genres.data.genres;
   genreParam.unshift({ id: "rd", name: "Random" });
@@ -49,7 +51,7 @@ const requestGenre = async () => {
 };
 
 const requestMovie = async (discoverMovie) => {
-  const tempApi = new MovieApi(API_KEY);
+  const tempApi = new MovieApi(process.env.SECRET_KEY);
   const result = await tempApi.getMovies(discoverMovie);
   const movies = result.data;
 
