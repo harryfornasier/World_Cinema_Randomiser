@@ -77,18 +77,46 @@ input {
     margin: 1rem;
   }
 
+  &__title,
+  &__year {
+    margin: unset;
+  }
+
+  &__title {
+    font-size: medium;
+    font-weight: bold;
+  }
+
+  &__year {
+    font-size: smaller;
+  }
+
   &__description {
     max-width: 100%;
     inline-size: 29rem;
     overflow-wrap: break-word;
     text-wrap: wrap;
-    margin: 1rem;
   }
 
   &__details {
     overflow-wrap: break-word;
     text-wrap: wrap;
     margin: 1rem;
+  }
+
+  &__bottom-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  &__link {
+    margin: 1rem;
+
+    &:hover {
+      color: blue;
+      text-decoration: underline;
+    }
   }
 }
 

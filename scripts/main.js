@@ -137,12 +137,16 @@ function createMovies(movieListObj) {
     for (let i = 0; i < movieList.length; i++) {
       const moviesWrapper = createElement("div", "movies__wrapper");
       const topWrapper = createElement("div", "movies__top-wrapper");
-      const movieTitle = createElement("h3", "movies__title", movieList[i].title);
-      const movieYear = createElement("h3", "movies__year", movieList[i].release_date);
+      const movieTitle = createElement("p", "movies__title", movieList[i].title);
+      const movieYear = createElement("p", "movies__year", movieList[i].release_date);
       const moviePoster = createElement("img", "movies__img");
       const movieVote = createElement("p", "movies__vote", movieList[i].vote_average);
       const details = createElement("details", "movies__details", movieList[i].overview);
+      const bottomWrapper = createElement("div", "movies__bottom-wrapper");
       const description = createElement("summary", "movies__description", "More details");
+      const ytSearch = createElement("a", "movies__link", "Search Youtube for movie");
+
+      ytSearch.href = `https://www.youtube.com/results?search_query=${movieList[i].title}`;
 
       if (movieList[i].backdrop_path) {
         moviePoster.src = `http://image.tmdb.org/t/p/w500/${movieList[i].backdrop_path}`;
@@ -157,7 +161,9 @@ function createMovies(movieListObj) {
 
       topWrapper.appendChild(movieYear);
       moviesWrapper.appendChild(moviePoster);
-      moviesWrapper.appendChild(details).appendChild(description);
+      bottomWrapper.appendChild(details).appendChild(description);
+      bottomWrapper.appendChild(ytSearch);
+      moviesWrapper.appendChild(bottomWrapper);
     }
   } else {
     form.click();

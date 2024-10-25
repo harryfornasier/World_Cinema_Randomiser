@@ -118,17 +118,38 @@ input {
   display: flex;
   margin: 1rem;
 }
+.movies__title, .movies__year {
+  margin: unset;
+}
+.movies__title {
+  font-size: medium;
+  font-weight: bold;
+}
+.movies__year {
+  font-size: smaller;
+}
 .movies__description {
   max-width: 100%;
   inline-size: 29rem;
   overflow-wrap: break-word;
   text-wrap: wrap;
-  margin: 1rem;
 }
 .movies__details {
   overflow-wrap: break-word;
   text-wrap: wrap;
   margin: 1rem;
+}
+.movies__bottom-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.movies__link {
+  margin: 1rem;
+}
+.movies__link:hover {
+  color: blue;
+  text-decoration: underline;
 }
 
 button {
