@@ -146,7 +146,8 @@ function createMovies(movieListObj) {
       const description = createElement("summary", "movies__description", "More details");
       const ytSearch = createElement("a", "movies__link", "Search Youtube for movie");
 
-      ytSearch.href = `https://www.youtube.com/results?search_query=${movieList[i].title}`;
+      ytSearch.href = `https://www.youtube.com/results?search_query=${movieList[i].title}+${movieList[i].release_date}`;
+      ytSearch.target = "_blank";
 
       if (movieList[i].backdrop_path) {
         moviePoster.src = `http://image.tmdb.org/t/p/w500/${movieList[i].backdrop_path}`;
