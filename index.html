@@ -11,24 +11,37 @@
   <body>
     <main class="main">
       <h1 class="main__title">The World Cinema Randomiser</h1>
-      <section class="form__container">
+      <section class="form__section">
         <form class="form" action="submit">
-          <label for="start">Start date:</label>
-          <input
-            type="date"
-            id="start"
-            name="trip-start"
-            value="2000-01-01"
-            min="1900-01-01"
-          />
-          <label for="start">End Date:</label>
-          <input
-            type="date"
-            id="end"
-            name="trip-start"
-            value="2024-01-01"
-            min="1900-01-01"
-          />
+          <div class="form-container">
+            <div class="form__block">
+              <div class="form__input">
+                <label for="start">Start date:</label>
+                <input
+                  type="date"
+                  id="start"
+                  name="trip-start"
+                  value="2000-01-01"
+                  min="1900-01-01"
+                />
+              </div>
+              <button class="form__button-select">Randomise</button>
+            </div>
+
+            <div class="form__block">
+              <div class="form__input">
+                <label for="start">End Date:</label>
+                <input
+                  type="date"
+                  id="end"
+                  name="trip-start"
+                  value="2024-01-01"
+                  min="1900-01-01"
+                />
+              </div>
+              <button class="form__button-select">randomise</button>
+            </div>
+          </div>
         </form>
       </section>
       <section class="movies"></section>

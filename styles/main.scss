@@ -20,11 +20,37 @@ body {
   flex-direction: column;
   display: flex;
   gap: 0.5rem;
-  max-width: 60%;
+  flex-wrap: wrap;
 
-  &__container {
+  &__section {
     display: flex;
     justify-content: center;
+  }
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  &__block {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+    border: solid #4c061d 4px;
+    border-radius: 4px;
+  }
+
+  &__input {
+    display: flex;
+    flex-direction: column;
+    width: 67%;
+    padding-left: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  &__button-select {
+    width: 6rem;
   }
 }
 
@@ -124,10 +150,4 @@ input {
 
 summary {
   padding-top: 1rem;
-}
-
-button {
-  background-color: #d17a22;
-  border-radius: 4px;
-  height: 4rem;
 }

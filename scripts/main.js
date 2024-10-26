@@ -12,6 +12,8 @@ const inputSection = document.querySelector(".form");
 const selectSort = loopSelectionElements(selectOptions, "sort");
 const selectCountry = loopSelectionElements(languages, "languages");
 
+const selectContainer = document.querySelector(".form-container");
+
 const form = document.querySelector(".form");
 
 let checkAgain = false;
@@ -77,14 +79,62 @@ function createSelection(genreParam) {
   const selectButton = createElement(
     "button",
     "submit__button",
-    "Randomise",
+    "Submit",
     "submitButton"
   );
   selectButton.type = "submit";
 
-  inputSection.appendChild(selectCountry);
-  inputSection.appendChild(selectGenre);
-  inputSection.appendChild(selectSort);
+  const blockContainerCountry = createElement("div", "form__block");
+  const blockContainerGenre = createElement("div", "form__block");
+  const blockContainerSort = createElement("div", "form__block");
+
+  const labelCountry = createElement("label", "form__labe", "Language:");
+  const labelGenre = createElement("label", "form__label", "Genre:");
+  const labelSort = createElement("label", "form__label", "Sort by:");
+
+  const inputContainerCountry = createElement("div", "form__input");
+  const inputContainerGenre = createElement("div", "form__input");
+  const inputContainerSort = createElement("div", "form__input");
+
+  const inputButtonCountry = createElement(
+    "button",
+    "form__button-select",
+    "Randomise",
+    "country-button"
+  );
+  const inputButtonGenre = createElement(
+    "button",
+    "form__button-select",
+    "Randomise",
+    "genre-button"
+  );
+  const inputButtonSort = createElement(
+    "button",
+    "form__button-select",
+    "Randomise",
+    "sort-button"
+  );
+
+  inputContainerCountry.appendChild(labelCountry);
+  inputContainerGenre.appendChild(labelGenre);
+  inputContainerSort.appendChild(labelSort);
+
+  selectContainer
+    .appendChild(blockContainerCountry)
+    .appendChild(inputContainerCountry)
+    .appendChild(selectCountry);
+  selectContainer
+    .appendChild(blockContainerGenre)
+    .appendChild(inputContainerGenre)
+    .appendChild(selectGenre);
+  selectContainer
+    .appendChild(blockContainerSort)
+    .appendChild(inputContainerSort)
+    .appendChild(selectSort);
+
+  blockContainerCountry.appendChild(inputButtonCountry);
+  blockContainerGenre.appendChild(inputButtonGenre);
+  blockContainerSort.appendChild(inputButtonSort);
   inputSection.appendChild(selectButton);
 }
 

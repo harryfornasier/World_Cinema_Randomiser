@@ -30,6 +30,11 @@ input[type=reset] {
   outline: inherit;
 }
 
+button {
+  background-color: #d17a22;
+  height: 4rem;
+}
+
 .footer {
   display: flex;
   justify-content: center;
@@ -62,11 +67,33 @@ body {
   flex-direction: column;
   display: flex;
   gap: 0.5rem;
-  max-width: 60%;
+  flex-wrap: wrap;
 }
-.form__container {
+.form__section {
   display: flex;
   justify-content: center;
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.form__block {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+  border: solid #4c061d 4px;
+  border-radius: 4px;
+}
+.form__input {
+  display: flex;
+  flex-direction: column;
+  width: 67%;
+  padding-left: 0.5rem;
+  padding-top: 0.5rem;
+}
+.form__button-select {
+  width: 6rem;
 }
 
 select,
@@ -156,10 +183,4 @@ input {
 
 summary {
   padding-top: 1rem;
-}
-
-button {
-  background-color: #d17a22;
-  border-radius: 4px;
-  height: 4rem;
 }/*# sourceMappingURL=main.css.map */
