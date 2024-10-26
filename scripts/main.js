@@ -135,55 +135,45 @@ function createMovies(movieListObj) {
   document.querySelector(".page-text").innerText = movieListObj.page;
   if (movieList.length) {
     for (let i = 0; i < movieList.length; i++) {
-      if (movieList[i].overview) {
-        const moviesWrapper = createElement("div", "movies__wrapper");
-        const topWrapper = createElement("div", "movies__top-wrapper");
-        const movieTitle = createElement("p", "movies__title", movieList[i].title);
-        const movieYear = createElement("p", "movies__year", movieList[i].release_date);
-        const moviePoster = createElement("img", "movies__img");
-        const movieVote = createElement(
-          "summary",
-          "movies__vote",
-          "Vote average: " + movieList[i].vote_average
-        );
-        const details = createElement(
-          "details",
-          "movies__details",
-          movieList[i].overview
-        );
-        const bottomWrapper = createElement("div", "movies__bottom-wrapper");
-        const description = createElement(
-          "summary",
-          "movies__description",
-          "More details"
-        );
-        const ytSearch = createElement("a", "movies__link", "Search Youtube for movie");
-        const okSearch = createElement("a", "movies__link", "Search ok.ru for movie");
+      const moviesWrapper = createElement("div", "movies__wrapper");
+      const topWrapper = createElement("div", "movies__top-wrapper");
+      const movieTitle = createElement("p", "movies__title", movieList[i].title);
+      const movieYear = createElement("p", "movies__year", movieList[i].release_date);
+      const moviePoster = createElement("img", "movies__img");
+      const movieVote = createElement(
+        "summary",
+        "movies__vote",
+        "Vote average: " + movieList[i].vote_average
+      );
+      const details = createElement("details", "movies__details", movieList[i].overview);
+      const bottomWrapper = createElement("div", "movies__bottom-wrapper");
+      const description = createElement("summary", "movies__description", "More details");
+      const ytSearch = createElement("a", "movies__link", "Search Youtube for movie");
+      const okSearch = createElement("a", "movies__link", "Search ok.ru for movie");
 
-        ytSearch.href = `https://www.youtube.com/results?search_query=${movieList[i].title}+${movieList[i].release_date}`;
-        ytSearch.target = "_blank";
+      ytSearch.href = `https://www.youtube.com/results?search_query=${movieList[i].title}+${movieList[i].release_date}`;
+      ytSearch.target = "_blank";
 
-        okSearch.href = `https://ok.ru/video/search?st.cmd=anonymVideo&st.gsq=${movieList[i].title}+${movieList[i].release_date}&st.m=SEARCH&st.ft=search`;
+      okSearch.href = `https://ok.ru/video/search?st.cmd=anonymVideo&st.gsq=${movieList[i].title}+${movieList[i].release_date}&st.m=SEARCH&st.ft=search`;
 
-        if (movieList[i].backdrop_path) {
-          moviePoster.src = `http://image.tmdb.org/t/p/w500/${movieList[i].backdrop_path}`;
-        } else {
-          moviePoster.src = "image-not-found.png";
-        }
-
-        moviesSection
-          .appendChild(moviesWrapper)
-          .appendChild(topWrapper)
-          .appendChild(movieTitle);
-
-        topWrapper.appendChild(movieYear);
-        moviesWrapper.appendChild(moviePoster);
-        bottomWrapper.appendChild(details).appendChild(description);
-        details.appendChild(movieVote);
-        bottomWrapper.appendChild(ytSearch);
-        bottomWrapper.appendChild(okSearch);
-        moviesWrapper.appendChild(bottomWrapper);
+      if (movieList[i].backdrop_path) {
+        moviePoster.src = `http://image.tmdb.org/t/p/w500/${movieList[i].backdrop_path}`;
+      } else {
+        moviePoster.src = "image-not-found.png";
       }
+
+      moviesSection
+        .appendChild(moviesWrapper)
+        .appendChild(topWrapper)
+        .appendChild(movieTitle);
+
+      topWrapper.appendChild(movieYear);
+      moviesWrapper.appendChild(moviePoster);
+      bottomWrapper.appendChild(details).appendChild(description);
+      details.appendChild(movieVote);
+      bottomWrapper.appendChild(ytSearch);
+      bottomWrapper.appendChild(okSearch);
+      moviesWrapper.appendChild(bottomWrapper);
     }
   } else {
     form.click();
