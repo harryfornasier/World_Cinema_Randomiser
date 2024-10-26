@@ -96,6 +96,7 @@ input {
     inline-size: 29rem;
     overflow-wrap: break-word;
     text-wrap: wrap;
+    padding-bottom: 0.5rem;
   }
 
   &__details {
@@ -111,13 +112,18 @@ input {
   }
 
   &__link {
-    margin: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
 
     &:hover {
       color: blue;
       text-decoration: underline;
     }
   }
+}
+
+summary {
+  padding-top: 1rem;
 }
 
 button {

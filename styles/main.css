@@ -133,6 +133,7 @@ input {
   inline-size: 29rem;
   overflow-wrap: break-word;
   text-wrap: wrap;
+  padding-bottom: 0.5rem;
 }
 .movies__details {
   overflow-wrap: break-word;
@@ -145,11 +146,16 @@ input {
   width: 100%;
 }
 .movies__link {
-  margin: 1rem;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
 }
 .movies__link:hover {
   color: blue;
   text-decoration: underline;
+}
+
+summary {
+  padding-top: 1rem;
 }
 
 button {

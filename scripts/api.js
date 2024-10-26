@@ -10,6 +10,7 @@ export default class MovieApi {
       const response = await axios.get(
         `${this.baseURL}${this.discoverURL}language=${discoverObject.language}&page=${discoverObject.page}&release_date.gte=${discoverObject.dateStart}&release_date.lte=${discoverObject.dateEnd}&sort_by=${discoverObject.sort}&api_key=${this.mega}&with_original_language=${discoverObject.language}&with_genres=${discoverObject.genre}`
       );
+      console.log(response);
       return response;
     } catch (error) {
       console.error("Error fetching movies:", error);
