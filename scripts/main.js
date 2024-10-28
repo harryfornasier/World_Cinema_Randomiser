@@ -135,6 +135,7 @@ function createMovies(movieListObj) {
   document.querySelector(".page-text").innerText = movieListObj.page;
   if (movieList.length) {
     for (let i = 0; i < movieList.length; i++) {
+      console.log(movieList);
       const moviesWrapper = createElement("div", "movies__wrapper");
       const topWrapper = createElement("div", "movies__top-wrapper");
       const movieTitle = createElement("p", "movies__title", movieList[i].title);
