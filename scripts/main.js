@@ -150,12 +150,9 @@ function createMovies(movieListObj) {
       const bottomWrapper = createElement("div", "movies__bottom-wrapper");
       const description = createElement("summary", "movies__description", "More details");
       const ytSearch = createElement("a", "movies__link", "Search Youtube for movie");
-      const okSearch = createElement("a", "movies__link", "Search ok.ru for movie");
 
       ytSearch.href = `https://www.youtube.com/results?search_query=${movieList[i].title}+${movieList[i].release_date}`;
       ytSearch.target = "_blank";
-
-      okSearch.href = `https://ok.ru/video/search?st.cmd=anonymVideo&st.gsq=${movieList[i].title}+${movieList[i].release_date}&st.m=SEARCH&st.ft=search`;
 
       if (movieList[i].backdrop_path) {
         moviePoster.src = `http://image.tmdb.org/t/p/w500/${movieList[i].backdrop_path}`;
@@ -173,7 +170,6 @@ function createMovies(movieListObj) {
       bottomWrapper.appendChild(details).appendChild(description);
       details.appendChild(movieVote);
       bottomWrapper.appendChild(ytSearch);
-      bottomWrapper.appendChild(okSearch);
       moviesWrapper.appendChild(bottomWrapper);
     }
   } else {
