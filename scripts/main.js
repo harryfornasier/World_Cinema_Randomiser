@@ -149,7 +149,7 @@ function createMovies(movieListObj) {
       const details = createElement("details", "movies__details", movieList[i].overview);
       const bottomWrapper = createElement("div", "movies__bottom-wrapper");
       const description = createElement("summary", "movies__description", "More details");
-      const ytSearch = createElement("a", "movies__link", "Search Youtube for movie");
+      const ytSearch = createElement("a", "movies__link", "Search YouTube for movie");
 
       ytSearch.href = `https://www.youtube.com/results?search_query=${movieList[i].title}+${movieList[i].release_date}`;
       ytSearch.target = "_blank";
